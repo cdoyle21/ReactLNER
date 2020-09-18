@@ -20,7 +20,7 @@ class ImageUploader extends Component {
             formData.append(i, file)
         })
 
-        fetch(API_URL, {
+        fetch(`${API_URL}/image-upload`, {
             method: 'POST',
             body: formData
         })

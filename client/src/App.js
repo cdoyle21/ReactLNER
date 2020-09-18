@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import TopNav from './components/TopNav';
+import Fixtures from './components/Fixtures'
 import Footer from "./components/Footer/Footer";
 import ImageUploader from "./components/ImageUploader/ImageUploader";
-//import Axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
 
@@ -13,11 +14,15 @@ class App extends Component {
 
   render() {
       return (
-          <div className="App">
-              <TopNav/>
-              <ImageUploader/>
-              <Footer/>
-          </div>
+          <Router>
+              <div className="App">
+                  <TopNav/>
+                  <Route exact path='/' component = {ImageUploader} />
+                  <Route path='/fixtures' component = {Fixtures} />
+                  {/*<ImageUploader/>*/}
+                  <Footer/>
+              </div>
+          </Router>
       );
   }
 }
